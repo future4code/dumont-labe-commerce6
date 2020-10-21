@@ -76,13 +76,19 @@ export class Products extends React.Component {
     }
 
     onClickAddProduct = (id) => {
+        //TODO: função está sobreescrevendo quando salva um produto
         const newShopList = this.state.productsArray.filter((product) => {
           if ( id === product.id ){
-              return product
+              return {...this.state.shopList, product}
           }
         })
 
         this.setState({ shopList: newShopList })
+        this.saveOnLocalStorage(this.state.shopList)
+    }
+
+    saveOnLocalStorage = (array)=>{
+        localStorage.setItem("produtos", JSON.stringify(array))
     }
 
     orderByPrice = (event) => {
