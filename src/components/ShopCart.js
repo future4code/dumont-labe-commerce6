@@ -2,6 +2,7 @@ import React from 'react';
 import ShopCartItem from './ShopCartItem'
 
 class ShopCart extends React.Component {
+
     render() {
         return(
             <div>
