@@ -8,13 +8,16 @@ const MainContainer = styled.div`
   display: flex;
 `
 
+const MainContainer = styled.div`
+  display: flex;
+`
+
 const ProductsContainer = styled.div`
   background-color: blue;
   flex-grow: 1;
 `
 
 class App extends React.Component {
-
   render() {
     return (
       <MainContainer>
@@ -25,5 +28,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
