@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import './App.css';
 import Filter from './components/Filter';
 import ShopCart from './components/ShopCart';
+import Products from './components/Products';
 
 const MainContainer = styled.div`
   display: flex;
 `
 
 const ProductsContainer = styled.div`
-  background-color: blue;
+  width: 80vw;
   flex-grow: 1;
 `
 
@@ -19,7 +20,9 @@ class App extends React.Component {
     return (
       <MainContainer>
         <Filter/>
-        <ProductsContainer>Sessao de produtos</ProductsContainer>
+        <ProductsContainer>
+          <Products/>
+        </ProductsContainer>
         <ShopCart/>
       </MainContainer>
     );
