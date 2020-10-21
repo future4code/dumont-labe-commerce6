@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class ShopCar extends React.Component {
+export class ShopCart extends React.Component {
     render() {
         return(
             <div>
