@@ -11,7 +11,7 @@ class ShopCart extends React.Component {
                 <p>R${this.props.total}</p>
             </div>
         )
-}
+    }
 }
 
 export default ShopCart
