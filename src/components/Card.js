@@ -8,7 +8,7 @@ export class Card extends React.Component {
             <img src={this.props.image}/>
             <p>{this.props.name}</p>
             <p>R$ {this.props.price}</p>
-            <button>Adicionar ao Carrinho</button>
+            <button onClick={()=> this.props.toCart(this.props.id)}>Adicionar ao Carrinho</button>
         </div>
         )
     }
