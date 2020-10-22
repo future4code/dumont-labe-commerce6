@@ -79,6 +79,27 @@ export class Products extends React.Component {
             )
         }) 
 
+        let list =
+        this.props.filteredList.length !== 0
+          ? this.props.filteredList.map((product) => {
+              return (
+                <Card image= {product.image}
+                name= {product.name}
+                id={product.id}
+                price= {product.price}
+                toCart={this.onClickAddProduct} />
+              );
+            })
+          : this.props.products.map((product) => {
+              return (
+                <Card image= {product.image}
+                name= {product.name}
+                id={product.id}
+                price= {product.price}
+                toCart={this.onClickAddProduct} />
+              );
+            });
+
         return (<div>
             <Header>
                 <p>Quantidade de Produtos: 8</p>
@@ -89,7 +110,7 @@ export class Products extends React.Component {
                 </select>
             </Header>
             <GridContainer>
-                {productsList}
+                {list}
             </GridContainer>
         </div>
         )
