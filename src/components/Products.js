@@ -24,21 +24,18 @@ export class Products extends React.Component {
         shopList: []
     }
 
-    onClickAddProduct = (id) => {
-        //TODO: função está sobreescrevendo quando salva um produto - ainda nao resolvido
-        const newShopList = this.props.products.filter((product) => {
-          if ( id === product.id ){
-              const arrayShopList = {
-                  ...this.state.shopList,
-                  product
-              }
-              return arrayShopList
-          }
-        })
+    // onClickAddProduct = (id) => {
+    //     //TODO: função está sobreescrevendo quando salva um produto - ainda nao resolvido
+    //     const newShopList = this.props.products.filter((product) => {
+    //       if ( id === product.id ){
+    //           const newProduct = product
+    //           return product
+    //       }
+    //     })
 
-        this.setState({ shopList: newShopList })
+    //     this.setState({ shopList: [...newShopList, product]})
         
-    }
+    // }
 
     componentDidUpdate = () => {
         localStorage.setItem("produtos", JSON.stringify(this.state.shopList))

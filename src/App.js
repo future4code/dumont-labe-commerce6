@@ -73,7 +73,23 @@ class App extends React.Component {
     inputMaxValue: "",
     inputSearchProduct: "",
     isVisible: false,
-    filteredList: []
+    filteredList: [],
+    shopList: [
+        {
+          id: 8,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 1
+      },
+        {
+          id: 9,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 51,
+          quantity: 5
+      }
+    ]
   }
 
   handleShoppingCartVisibility = () => {
@@ -110,7 +126,7 @@ class App extends React.Component {
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
         <CartButton clickFunction={this.handleShoppingCartVisibility}/>
-        {this.state.isVisible && <ShopCart/>}
+        {this.state.isVisible && <ShopCart shopList={this.state.shopList}/>}
       </MainContainer>
     );
   }
