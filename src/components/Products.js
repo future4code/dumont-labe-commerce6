@@ -20,7 +20,7 @@ const Logo = styled.img`
 `
 
 export class Products extends React.Component {
-    
+
     // state = {
     //     shopList: []
     // }
@@ -28,7 +28,7 @@ export class Products extends React.Component {
     // componentDidUpdate = () => {
     //     localStorage.setItem("produtos", JSON.stringify(this.state.shopList))
     // }
-
+    
     orderByPrice = (event) => {
         if (event.target.value === "crescente") {
             const crescent = this.props.products.sort((a,b) => {
@@ -40,8 +40,8 @@ export class Products extends React.Component {
                 return (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0)
               })
               this.setState({products: decrescent})
-        }     
-        
+        }  
+
     }
 
     filterByPrice = () => {

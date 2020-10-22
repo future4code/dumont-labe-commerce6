@@ -106,7 +106,7 @@ class App extends React.Component {
 
   onChangeInputSearch = (event) => {
     this.setState({ inputSearch: event.target.value });
-
+    
     const filteredList = this.productsArray.filter((product) => {
       const name = product.name.toLowerCase();
       const inputValue = event.target.value.toLowerCase();
