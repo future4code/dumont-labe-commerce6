@@ -2,6 +2,7 @@ import React from 'react';
 import ShopCartItem from './ShopCartItem'
 
 class ShopCart extends React.Component {
+
     arrayShopList = this.props.shopList.map((product)=>{
         return <ShopCartItem item={product} />
     })
@@ -10,7 +11,6 @@ class ShopCart extends React.Component {
         let total = 0
         for (let item of this.props.shopList){
             total += item.price * item.quantity 
-            console.log(total)
         }
         return total;
     }

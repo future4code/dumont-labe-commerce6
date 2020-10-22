@@ -20,26 +20,14 @@ const Logo = styled.img`
 `
 
 export class Products extends React.Component {
-    state = {
-        shopList: []
-    }
-
-    // onClickAddProduct = (id) => {
-    //     //TODO: função está sobreescrevendo quando salva um produto - ainda nao resolvido
-    //     const newShopList = this.props.products.filter((product) => {
-    //       if ( id === product.id ){
-    //           const newProduct = product
-    //           return product
-    //       }
-    //     })
-
-    //     this.setState({ shopList: [...newShopList, product]})
-        
+    
+    // state = {
+    //     shopList: []
     // }
 
-    componentDidUpdate = () => {
-        localStorage.setItem("produtos", JSON.stringify(this.state.shopList))
-    }
+    // componentDidUpdate = () => {
+    //     localStorage.setItem("produtos", JSON.stringify(this.state.shopList))
+    // }
 
     orderByPrice = (event) => {
         if (event.target.value === "crescente") {
@@ -65,37 +53,30 @@ export class Products extends React.Component {
         )
     }
 
-    render() {
-        const productsList = this.props.products.map((product) => {
-            return (
-                <Card image= {product.image}
-                name= {product.name}
-                id={product.id}
-                price= {product.price}
-                toCart={this.onClickAddProduct} />
-            )
-        }) 
+    list =
+    this.props.filteredList.length !== 0
+      ? this.props.filteredList.map((product) => {
+          return (
+            <Card image= {product.image}
+            name= {product.name}
+            id={product.id}
+            price= {product.price}
+            quantity= {product.quantity}
+            toCart={this.props.toCart} />
+          );
+        })
+      : this.props.products.map((product) => {
+          return (
+            <Card image= {product.image}
+            name= {product.name}
+            id={product.id}
+            price= {product.price}
+            quantity= {product.quantity}
+            toCart={this.props.toCart} />
+          );
+        });
 
-        let list =
-        this.props.filteredList.length !== 0
-          ? this.props.filteredList.map((product) => {
-              return (
-                <Card image= {product.image}
-                name= {product.name}
-                id={product.id}
-                price= {product.price}
-                toCart={this.onClickAddProduct} />
-              );
-            })
-          : this.props.products.map((product) => {
-              return (
-                <Card image= {product.image}
-                name= {product.name}
-                id={product.id}
-                price= {product.price}
-                toCart={this.onClickAddProduct} />
-              );
-            });
+    render() {
 
         return (<div>
             <Header>
@@ -107,7 +88,7 @@ export class Products extends React.Component {
                 </select>
             </Header>
             <GridContainer>
-                {list}
+                {this.list}
             </GridContainer>
         </div>
         )
