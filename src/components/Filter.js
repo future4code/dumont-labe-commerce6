@@ -13,10 +13,6 @@ const FilterContainer = styled.div`
 `
 
 class Filter extends React.Component {
-    
-    
-
-    
 
     filterByName = () => {
 
@@ -39,6 +35,7 @@ class Filter extends React.Component {
                 <p>Buscar Produto:</p>
                 <input 
                 value={this.props.inputSearchProduct}
+                onChange={this.props.nameFilter}
                 
                 />
             </FilterContainer>  
