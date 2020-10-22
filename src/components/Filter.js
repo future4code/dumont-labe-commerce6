@@ -14,10 +14,6 @@ const FilterContainer = styled.div`
 
 class Filter extends React.Component {
 
-    filterByName = () => {
-
-    }
-
     render() {
         return (
             <FilterContainer>
