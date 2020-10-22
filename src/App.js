@@ -21,49 +21,57 @@ class App extends React.Component {
         id: 1,
         image: "https://picsum.photos/300/300",
         name: "bananinha",
-        price: 10
+        price: 10,
+        quantity: 0
     },
     {
         id: 2,
         image: "https://picsum.photos/300/300",
         name: "feijão",
-        price: 60
+        price: 60,
+        quantity: 0
     },
     {
         id: 3,
         image: "https://picsum.photos/300/300",
         name: "gatinha",
-        price: 30
+        price: 30,
+        quantity: 0
     },
     {
         id: 4,
         image: "https://picsum.photos/300/300",
         name: "camiseta",
-        price: 50
+        price: 50,
+        quantity: 0
     },
     {
         id: 5,
         image: "https://picsum.photos/300/300",
         name: "camiseta",
-        price: 50
+        price: 50,
+        quantity: 0
     },
     {
         id: 6,
         image: "https://picsum.photos/300/300",
         name: "camiseta",
-        price: 50
+        price: 50,
+        quantity: 0
     },
     {
         id: 7,
         image: "https://picsum.photos/300/300",
         name: "camiseta",
-        price: 50
+        price: 50,
+        quantity: 0
     },
     {
         id: 8,
         image: "https://picsum.photos/300/300",
         name: "camiseta",
-        price: 50
+        price: 50,
+        quantity: 0
     }
     
   ]
@@ -74,22 +82,22 @@ class App extends React.Component {
     inputSearchProduct: "",
     isVisible: false,
     filteredList: [],
-    shopList: [
-        {
-          id: 8,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
-          quantity: 1
-      },
-        {
-          id: 9,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 51,
-          quantity: 5
-      }
-    ]
+    shopList: []
+  }
+
+
+  addProduct = (itemId) => {
+    const productToAdd = this.productsArray.find(item => {
+      return(itemId === item.id)
+    })
+    if(productToAdd){
+      const newProductToAdd = this.productsArray.find(item => itemId === item.id)
+      const newShopList = [...this.state.shopList, {...newProductToAdd, quantity: 1}]
+      this.setState({shopList: newShopList})
+    } else {
+      const newProductsToAdd = [...this.state.shopList, productToAdd]
+      this.setState({shopList: newProductsToAdd})
+    }
   }
 
   handleShoppingCartVisibility = () => {
@@ -122,6 +130,7 @@ class App extends React.Component {
         <ProductsContainer>
           <Products
           products={this.productsArray}
+          toCart = {this.addProduct}
           nameFilter={this.state.inputSearchProduct}
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
