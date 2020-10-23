@@ -17,6 +17,7 @@ const GridContainer = styled.div`
 
 
 export class Products extends React.Component {
+
     
     state = {
     
@@ -35,8 +36,8 @@ export class Products extends React.Component {
                 return (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0)
               })
               this.setState({products: decrescent})
-        }     
-        
+        }  
+
     }
 
     
