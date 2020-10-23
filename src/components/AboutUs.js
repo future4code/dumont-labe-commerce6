@@ -4,7 +4,12 @@ import ImageAbout from "../img/gato.jpg"
 
 const AboutUsContainer = styled.div`
     display: flex;
-    margin: 3em 6em;
+    margin: 3em 7em;
+    align-items:center;
+    justify-content: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 1.2em;
+    background-color: rgb(116, 74, 157, 0.5);
 `
 const ImageAboutUs = styled.img`
     width: 25%;
@@ -12,7 +17,7 @@ const ImageAboutUs = styled.img`
 const TextAbout = styled.p`
     display:flex;
     flex-wrap: wrap;
-    margin: 3em;
+    margin: 0 6em;
 `
 
 export class AboutUs extends React.Component {
