@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import './App.css';
-import Filter from './components/Filter';
 import ShopCart from './components/ShopCart/ShopCart';
 import Products from './components/Products/Products';
 import Header from './components/Header'
@@ -80,15 +79,17 @@ class App extends React.Component {
       }
       
     ],
-    inputMinValue: "",
-    inputMaxValue: "",
+    inputMinValue: 0,
+    inputMaxValue: Infinity,
     inputSearchProduct: "",
     shopCartIsVisible: false,
     aboutUsIsVisible: false,
     filteredList: [],
-    shopList: []
+    shopList: [],
+    priceRangeList: []
   }
 
+  // ------- funções shopCart ------------------------------------
   //função adicionar produto 
   addProduct = (itemId) => {
     const productToAdd = this.state.productsArray.find(item => {
@@ -111,8 +112,25 @@ class App extends React.Component {
     });
     this.setState({ shopList: newList });
   };
+  // -----------------------------------------------------
+
+  // ------- desafio 1 ------------------------------------
+  // didupdate da shopList
+  componentDidUpdate = () => {
+
+    localStorage.setItem("lista", JSON.stringify(this.state.shopList))
+  }
+
+  // didmount da shopList
+  componentDidMount = () => {
+    if (localStorage.getItem("lista")) {
+      this.setState({shopList: JSON.parse(localStorage.getItem("lista"))})
+    }
+  };
+  // -----------------------------------------------------
 
 
+  // ------- funções visibilidade ------------------------
   // função de mostrar se o shopping cart tá visível ou não
   handleShoppingCartVisibility = () => {
     this.setState({ shopCartIsVisible: !this.state.shopCartIsVisible });
@@ -122,7 +140,10 @@ class App extends React.Component {
   handleAboutUsVisibility = () => {
     this.setState({ aboutUsIsVisible: !this.state.aboutUsIsVisible });
   };
+  // ----------------------------------------------------- 
 
+
+  // ------- funções de filtro ---------------------------
   // função filtrar pelo nome do item
   onChangeInputSearch = (event) => {
     this.setState({ inputSearch: event.target.value });
@@ -139,6 +160,8 @@ class App extends React.Component {
     this.setState({ filteredList: filteredList });
   };
 
+  // -----------------------------------------------------
+
   render() {
     return (
       <div>
@@ -148,16 +171,15 @@ class App extends React.Component {
         nameFilter={this.onChangeInputSearch}/>
         {this.state.aboutUsIsVisible && <AboutUs />}
         <MainContainer>
-        {/* <Filter
-        minFilter={this.state.inputMinValue}
-        maxFilter={this.state.inputMaxValue}
-        /> */}
         <ProductsContainer>
           <Products
           products={this.state.productsArray}
           toCart = {this.addProduct}
-          nameFilter={this.state.inputSearchProduct}
-          filteredList={this.state.filteredList}/>
+          filteredList={this.state.filteredList}
+          rangeFilter = {this.filterPriceRange}
+          rangeList = {this.state.priceRangeList}
+          
+          />
         </ProductsContainer >
         {this.state.shopCartIsVisible && 
         <ShopCart removeItem={this.removeItem} 
@@ -165,7 +187,9 @@ class App extends React.Component {
       </MainContainer>
       <Footer />
       </div>
-    );
+    )
   }
+
 }
+
 export default App;

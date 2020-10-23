@@ -15,10 +15,6 @@ const ShopCartContainer = styled.div`
 
 class ShopCart extends React.Component {
 
-    arrayShopList = this.props.shopList.map((product)=>{
-        return <ShopCartItem removeItem={this.props.removeItem} item={product} />
-    })
-
     getTotal = () => {
         let total = 0
         for (let item of this.props.shopList){
@@ -28,10 +24,14 @@ class ShopCart extends React.Component {
     }
 
     render() {
+        const arrayShopList = this.props.shopList.map((product)=>{
+            return <ShopCartItem removeItem={this.props.removeItem} item={product} />
+        })
+
         return(
             <ShopCartContainer>
                 <h2>Carrinho</h2>
-                {this.arrayShopList}
+                {arrayShopList}
                 <p>Total: R$ {this.getTotal()},00</p>
             </ShopCartContainer>
         )
