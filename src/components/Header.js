@@ -7,7 +7,7 @@ const DivHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+    background-color: rgb(86, 109, 166, 0.7);
 `
 const Logo = styled.img`
     width: 10%;
@@ -24,7 +24,7 @@ export class Header extends React.Component {
                 <Logo src={logo} />
                 <h3>Quem somos</h3>
                 <h3>Onde estamos</h3>
-                <ShoppingBag src={shoppingBag} />
+                <ShoppingBag  onClick={this.props.clickFunction} src={shoppingBag} />
             </DivHeader>
         )
     }

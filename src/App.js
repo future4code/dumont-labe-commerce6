@@ -4,7 +4,6 @@ import './App.css';
 import Filter from './components/Filter';
 import ShopCart from './components/ShopCart';
 import Products from './components/Products';
-import CartButton from './components/CartButton';
 import Header from './components/Header'
 
 const MainContainer = styled.div`
@@ -125,7 +124,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header clickFunction={this.handleShoppingCartVisibility}/>
 
         <MainContainer>
         <Filter
@@ -140,7 +139,6 @@ class App extends React.Component {
           nameFilter={this.state.inputSearchProduct}
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
-        <CartButton clickFunction={this.handleShoppingCartVisibility}/>
         {this.state.isVisible && <ShopCart shopList={this.state.shopList}/>}
       </MainContainer>
       </div>
