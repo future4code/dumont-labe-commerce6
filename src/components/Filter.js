@@ -7,6 +7,15 @@ const FilterContainer = styled.div`
     padding-left: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    color: rgb(35, 32, 112);
+`
+const Title = styled.h3`
+    margin-right: 10px;
+`
+
+const Input = styled.input`
+    margin-right: 10px;
 `
 
 class Filter extends React.Component {
@@ -14,15 +23,16 @@ class Filter extends React.Component {
     render() {
         return (
             <FilterContainer>
-                <h2>Filtros:</h2>
-                <input 
+                <Title>Filtros:</Title>
+                <Input 
                 value={this.props.inputMinValue}
                 type="number"
-                placeholder={'valor min'}/>
+                placeholder={'Valor mínimo'}/>
 
-                <input 
+                <Input 
                 value={this.props.inputMaxValue}
-                type="number"/>
+                type="number"
+                placeholder={'Valor máximo'}/>
 
             </FilterContainer>  
         ) 

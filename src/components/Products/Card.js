@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageCard = styled.img`
-    width: 95%;
+    width: 80%;
 `
 const DivCard = styled.div`
     margin-bottom: 15px;

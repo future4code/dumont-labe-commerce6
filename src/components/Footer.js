@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-    background-color: rgb(116, 74, 157);
+    background-color: rgb(116, 74, 157, 0.7);
     font-family: 'Staatliches', cursive;
     text-align: center;
     font-size: 16px;
@@ -26,7 +26,9 @@ const ImgSocialMedia = styled.img`
 const Sectionattendance = styled.section`
     margin-top: 3em;
 `
-
+const Assignature = styled.b`
+    color: rgb(35, 32, 112);
+`
 
 export class Footer extends React.Component {
     render() {
@@ -55,9 +57,9 @@ export class Footer extends React.Component {
             <p>Parcerias: parcerias@spacecat.com</p>
         </Sectionattendance>
         <section>
-            <a href="https://github.com">
+            <Assignature href="https://github.com" target="_blank">
                 <b>Copyright © Aline Vignoli  |  Diana Monteiro  |  Nicole Zolnier 2020</b>
-            </a>
+            </Assignature>
         </section>
     </FooterContainer>
         )

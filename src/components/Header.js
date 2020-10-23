@@ -10,7 +10,7 @@ const DivHeader = styled.div`
     background-color: rgb(116, 74, 157);
     color: #eb89a6;
     font-family: 'Staatliches', cursive;
-    font-size: 1.3em;
+    font-size: 1.5em;
 `;
 
 const DivEnd = styled.div`
@@ -36,16 +36,18 @@ const Logo = styled.img`
     margin: 10px 0 0 30px;
 `;
 const ShoppingBag = styled.img`
-    width: 4.3vw;
+    width: 4vw;
     margin:0 2em 0 30px;
 
 `;
 const Lupa = styled.img`
-    width: 2.3vw;
+    width: 2vw;
+    margin-left: 5px;
 `;
 
 const Input = styled.input`
-    /* margin-left: 10em; */
+    height: 1.5em;
+    width: 20em;
 `
 
 
@@ -66,7 +68,7 @@ export class Header extends React.Component {
                 <DivStart>   
                 <Logo src={logo} />
                 <LinkHeader onClick={this.props.aboutUsVisibility}>Quem somos</LinkHeader>
-                <LinkHeader>Onde estamos</LinkHeader>                            
+                <a href="https://www.google.com.br/maps/place/NASA+Mission+Control+Center/@29.5581038,-95.0915224,17z/data=!3m1!4b1!4m5!3m4!1s0x86409da671292593:0xf684f098a7237a30!8m2!3d29.5580992!4d-95.0893337?hl=pt-BR&authuser=0" target="_blank"><LinkHeader>Onde estamos</LinkHeader></a>                          
                 </DivStart>
                 <DivEnd>
                 {this.state.searchIsVisible && <Input 
