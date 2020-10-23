@@ -102,6 +102,15 @@ class App extends React.Component {
     }
   }
 
+  // função remover item carrinho
+  removeItem = (itemId) => {
+    const newList = this.state.shopList.filter((product) => {
+      return product.id !== itemId;
+    });
+    this.setState({ shopList: newList });
+  };
+
+
   // função de mostrar se o shopping cart tá visível ou não
   handleShoppingCartVisibility = () => {
     this.setState({ isVisible: !this.state.isVisible });
@@ -141,7 +150,7 @@ class App extends React.Component {
           nameFilter={this.state.inputSearchProduct}
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
-        {this.state.isVisible && <ShopCart shopList={this.state.shopList}/>}
+        {this.state.isVisible && <ShopCart removeItem={this.removeItem} shopList={this.state.shopList}/>}
         <Footer />
       </MainContainer>
       </div>

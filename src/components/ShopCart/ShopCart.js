@@ -4,7 +4,7 @@ import ShopCartItem from './ShopCartItem'
 class ShopCart extends React.Component {
 
     arrayShopList = this.props.shopList.map((product)=>{
-        return <ShopCartItem item={product} />
+        return <ShopCartItem removeItem={this.props.removeItem} item={product} />
     })
 
     getTotal = () => {

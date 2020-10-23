@@ -8,7 +8,7 @@ class ShopCartItem extends React.Component {
                 <p>{this.props.item.quantity}</p>
                 <p>{this.props.item.name}</p>
                 <p>{this.props.item.price}</p>
-                <p onClick={this.props.deletItem}>X</p>
+                <p onClick={() => this.props.removeItem(this.props.item.id)}>X</p>
             </div>
         )
     }
