@@ -5,6 +5,7 @@ import Filter from './components/Filter';
 import ShopCart from './components/ShopCart';
 import Products from './components/Products';
 import CartButton from './components/CartButton';
+import Header from './components/Header'
 
 const MainContainer = styled.div`
   display: flex;
@@ -16,67 +17,67 @@ const ProductsContainer = styled.div`
 `
 
 class App extends React.Component {
-  productsArray = [
-    {
-        id: 1,
-        image: "https://picsum.photos/300/300",
-        name: "bananinha",
-        price: 10,
-        quantity: 0
-    },
-    {
-        id: 2,
-        image: "https://picsum.photos/300/300",
-        name: "feijão",
-        price: 60,
-        quantity: 0
-    },
-    {
-        id: 3,
-        image: "https://picsum.photos/300/300",
-        name: "gatinha",
-        price: 30,
-        quantity: 0
-    },
-    {
-        id: 4,
-        image: "https://picsum.photos/300/300",
-        name: "camiseta",
-        price: 50,
-        quantity: 0
-    },
-    {
-        id: 5,
-        image: "https://picsum.photos/300/300",
-        name: "camiseta",
-        price: 50,
-        quantity: 0
-    },
-    {
-        id: 6,
-        image: "https://picsum.photos/300/300",
-        name: "camiseta",
-        price: 50,
-        quantity: 0
-    },
-    {
-        id: 7,
-        image: "https://picsum.photos/300/300",
-        name: "camiseta",
-        price: 50,
-        quantity: 0
-    },
-    {
-        id: 8,
-        image: "https://picsum.photos/300/300",
-        name: "camiseta",
-        price: 50,
-        quantity: 0
-    }
-    
-  ]
 
   state = {
+    productsArray: [
+      {
+          id: 1,
+          image: "https://picsum.photos/300/300",
+          name: "bananinha",
+          price: 10,
+          quantity: 0
+      },
+      {
+          id: 2,
+          image: "https://picsum.photos/300/300",
+          name: "feijão",
+          price: 60,
+          quantity: 0
+      },
+      {
+          id: 3,
+          image: "https://picsum.photos/300/300",
+          name: "gatinha",
+          price: 30,
+          quantity: 0
+      },
+      {
+          id: 4,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 0
+      },
+      {
+          id: 5,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 0
+      },
+      {
+          id: 6,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 0
+      },
+      {
+          id: 7,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 0
+      },
+      {
+          id: 8,
+          image: "https://picsum.photos/300/300",
+          name: "camiseta",
+          price: 50,
+          quantity: 0
+      }
+      
+    ],
     inputMinValue: "",
     inputMaxValue: "",
     inputSearchProduct: "",
@@ -85,13 +86,13 @@ class App extends React.Component {
     shopList: []
   }
 
-
+  //função adicionar produto 
   addProduct = (itemId) => {
-    const productToAdd = this.productsArray.find(item => {
+    const productToAdd = this.state.productsArray.find(item => {
       return(itemId === item.id)
     })
     if(productToAdd){
-      const newProductToAdd = this.productsArray.find(item => itemId === item.id)
+      const newProductToAdd = this.state.productsArray.find(item => itemId === item.id)
       const newShopList = [...this.state.shopList, {...newProductToAdd, quantity: 1}]
       this.setState({shopList: newShopList})
     } else {
@@ -100,20 +101,22 @@ class App extends React.Component {
     }
   }
 
+  // função de mostrar se o shopping cart tá visível ou não
   handleShoppingCartVisibility = () => {
     this.setState({ isVisible: !this.state.isVisible });
   };
 
+  // função filtrar pelo nome do item
   onChangeInputSearch = (event) => {
     this.setState({ inputSearch: event.target.value });
     
-    const filteredList = this.productsArray.filter((product) => {
+    const filteredList = this.state.productsArray.filter((product) => {
       const name = product.name.toLowerCase();
       const inputValue = event.target.value.toLowerCase();
       if (name.includes(inputValue)) {
         return product;
       } else {
-        return this.setState({ filteredList: this.productsArray });
+        return this.setState({ filteredList: this.state.productsArray });
       }
     });
     this.setState({ filteredList: filteredList });
@@ -121,7 +124,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <MainContainer>
+      <div>
+        <Header />
+
+        <MainContainer>
         <Filter
         minFilter={this.state.inputMinValue}
         maxFilter={this.state.inputMaxValue}
@@ -129,7 +135,7 @@ class App extends React.Component {
         />
         <ProductsContainer>
           <Products
-          products={this.productsArray}
+          products={this.state.productsArray}
           toCart = {this.addProduct}
           nameFilter={this.state.inputSearchProduct}
           filteredList={this.state.filteredList}/>
@@ -137,6 +143,7 @@ class App extends React.Component {
         <CartButton clickFunction={this.handleShoppingCartVisibility}/>
         {this.state.isVisible && <ShopCart shopList={this.state.shopList}/>}
       </MainContainer>
+      </div>
     );
   }
 }
