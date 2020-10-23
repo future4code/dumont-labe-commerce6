@@ -3,13 +3,10 @@ import styled from 'styled-components';
 
 const FilterContainer = styled.div`
     width: 20vw;
-    /* height: 100vh; */
     margin: 10px;
     padding-left: 10px;
-    /* border: solid 1px black; */
     display: flex;
-    /* flex-direction: column; */
-    align-items: flex-start;
+    align-items: center;
 `
 
 class Filter extends React.Component {
