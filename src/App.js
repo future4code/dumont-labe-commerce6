@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 
 const MainContainer = styled.div`
   display: flex;
+  height: 100%;
 `
 
 const ProductsContainer = styled.div`
@@ -82,7 +83,8 @@ class App extends React.Component {
     inputMinValue: "",
     inputMaxValue: "",
     inputSearchProduct: "",
-    isVisible: false,
+    shopCartIsVisible: false,
+    aboutUsIsVisible: false,
     filteredList: [],
     shopList: []
   }
@@ -113,7 +115,12 @@ class App extends React.Component {
 
   // função de mostrar se o shopping cart tá visível ou não
   handleShoppingCartVisibility = () => {
-    this.setState({ isVisible: !this.state.isVisible });
+    this.setState({ shopCartIsVisible: !this.state.shopCartIsVisible });
+  };
+
+  // função de mostrar e esconder o about us
+  handleAboutUsVisibility = () => {
+    this.setState({ aboutUsIsVisible: !this.state.aboutUsIsVisible });
   };
 
   // função filtrar pelo nome do item
@@ -135,14 +142,16 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header clickFunction={this.handleShoppingCartVisibility}/>
-        <AboutUs />
+        <Header 
+        clickFunction={this.handleShoppingCartVisibility} 
+        aboutUsVisibility={this.handleAboutUsVisibility}
+        nameFilter={this.onChangeInputSearch}/>
+        {this.state.aboutUsIsVisible && <AboutUs />}
         <MainContainer>
-        <Filter
+        {/* <Filter
         minFilter={this.state.inputMinValue}
         maxFilter={this.state.inputMaxValue}
-        nameFilter={this.onChangeInputSearch}
-        />
+        /> */}
         <ProductsContainer>
           <Products
           products={this.state.productsArray}
@@ -150,9 +159,11 @@ class App extends React.Component {
           nameFilter={this.state.inputSearchProduct}
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
-        {this.state.isVisible && <ShopCart removeItem={this.removeItem} shopList={this.state.shopList}/>}
-        <Footer />
+        {this.state.shopCartIsVisible && 
+        <ShopCart removeItem={this.removeItem} 
+        shopList={this.state.shopList}/>}
       </MainContainer>
+      <Footer />
       </div>
     );
   }

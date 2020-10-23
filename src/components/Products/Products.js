@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import Filter from '../Filter';
 
 const Header = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const Header = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-right: 10px;
 `;
@@ -73,6 +74,10 @@ export class Products extends React.Component {
     return (
       <div>
         <Header>
+          <Filter
+          minFilter={this.state.inputMinValue}
+          maxFilter={this.state.inputMaxValue}
+          />
           <p>Quantidade de Produtos: {list.length}</p>
           <select onChange={this.onChangeSelect}>
             <option value={"crescente"}>Crescente</option>
