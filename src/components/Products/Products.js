@@ -12,6 +12,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-right: 10px;
 `;
 
 export class Products extends React.Component {

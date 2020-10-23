@@ -1,5 +1,17 @@
 import React from 'react';
 import ShopCartItem from './ShopCartItem'
+import styled from 'styled-components';
+
+const ShopCartContainer = styled.div`
+    width: 20vw;
+    height: 100vh;
+    margin: 10px;
+    padding-left: 10px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`
 
 class ShopCart extends React.Component {
 
@@ -17,11 +29,11 @@ class ShopCart extends React.Component {
 
     render() {
         return(
-            <div>
+            <ShopCartContainer>
                 <h2>Carrinho</h2>
                 {this.arrayShopList}
                 <p>Total: R$ {this.getTotal()},00</p>
-            </div>
+            </ShopCartContainer>
         )
     }
 }
