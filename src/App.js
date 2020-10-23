@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import './App.css';
 import Filter from './components/Filter';
-import ShopCart from './components/ShopCart';
-import Products from './components/Products';
+import ShopCart from './components/ShopCart/ShopCart';
+import Products from './components/Products/Products';
 import Header from './components/Header'
+import AboutUs from './components/AboutUs'
+import Footer from './components/Footer'
 
 const MainContainer = styled.div`
   display: flex;
@@ -125,7 +127,7 @@ class App extends React.Component {
     return (
       <div>
         <Header clickFunction={this.handleShoppingCartVisibility}/>
-
+        <AboutUs />
         <MainContainer>
         <Filter
         minFilter={this.state.inputMinValue}
@@ -140,6 +142,7 @@ class App extends React.Component {
           filteredList={this.state.filteredList}/>
         </ProductsContainer >
         {this.state.isVisible && <ShopCart shopList={this.state.shopList}/>}
+        <Footer />
       </MainContainer>
       </div>
     );
