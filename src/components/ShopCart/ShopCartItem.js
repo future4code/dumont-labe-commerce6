@@ -5,11 +5,14 @@ import BotaoExcluir from '../../img/botao-excluir.svg'
 const DivCart = styled.div`
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
-    justify-content: center;
+    justify-content: flex-end;
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        padding-right: 40px;
+    }
 `
 const Item = styled.p`
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: 2px dotted black;
     border-left: none;
     border-right: none;

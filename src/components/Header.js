@@ -12,6 +12,11 @@ const DivHeader = styled.div`
     color: #eb89a6;
     font-family: 'Staatliches', cursive;
     font-size: 1.5em;
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        flex-direction: column;
+        font-size: 1.8em;
+    }
 `;
 
 const DivEnd = styled.div`
@@ -25,6 +30,10 @@ const DivStart = styled.div`
     flex-grow: 1;
     justify-content: flex-start;
     align-items:center;
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        flex-direction: column;
+    }
 `
 
 const LinkHeader = styled.h3`
@@ -40,14 +49,24 @@ const LinkHeader = styled.h3`
 const Logo = styled.img`
     width: 12vw;
     margin: 10px 60px 0 30px;
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        width: 60vw;  
+        margin: 30px 60px 0 30px;
+    }
 `;
+
 const ShoppingBag = styled.img`
     width: 4vw;
     margin:0 2em 0 30px;
     &:hover {
     cursor: pointer;
     opacity: 0.8;
-    
+    }
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        width: 12vw;  
+        margin:20px 2em 20px 30px;
     }
 `;
 
@@ -56,6 +75,10 @@ const Search = styled.img`
     margin-left: 5px;
     &:hover {
     cursor: pointer;
+    }
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        width: 8vw;  
     }
 `;
 

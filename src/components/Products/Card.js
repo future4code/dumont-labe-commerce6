@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageCard = styled.img`
-    width: 80%;
+    width: 75%;
     border: 1px outset white;
     margin-bottom: 15px;
 `
@@ -16,6 +16,12 @@ const DivCard = styled.div`
     margin: 0.5em;
     cursor: pointer;
     }
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        margin-bottom: 30px;
+        font-size: 1.3em;
+    }
+    
 `
 const Button = styled.button`
     margin: 2em;
@@ -27,6 +33,12 @@ const Button = styled.button`
     &:hover {
     background-color: rgb(65, 28, 126);
     cursor: pointer;
+    }
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        padding: 10px 30px;
+        margin: 20px 0 50px 0;
+        font-size: 20px;
     }
 `
 

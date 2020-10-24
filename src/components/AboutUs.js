@@ -10,15 +10,31 @@ const AboutUsContainer = styled.div`
     font-family: 'Staatliches', cursive;
     font-size: 1.1em;
     background-color: rgb(116, 74, 157, 0.5);
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        margin: 0;
+        flex-direction: column;
+        padding: 30px 0;
+        font-size: 1.3em;
+    }
 `
 const ImageAboutUs = styled.img`
     width: 25%;
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        width: 80%;
+    }
 `
 const TextAbout = styled.p`
     display:flex;
     flex-wrap: wrap;
     margin: 0 6em;
     color: rgb(35, 32, 113);
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        margin: 30px 40px 0 40px;
+        text-align: justify;
+    }
 `
 
 export class AboutUs extends React.Component {
