@@ -16,7 +16,7 @@ const SocialMedia = styled.ul`
     display:flex;
     list-style-type: none;
     align-items: center;
-    padding: 0 1em 3em 1em;
+    padding: 1em 1em 3em 1em;
     border: 1px solid black;
     border-left: none;
     border-right: none;
@@ -24,13 +24,22 @@ const SocialMedia = styled.ul`
 `
 const ImgSocialMedia = styled.img`
     width: 13%;
+    
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        width: 12vw;  
+        margin: 10px 2em 15px 1em;
+    }
 
 `
-const Sectionattendance = styled.section`
+const SectionAttendance = styled.section`
     margin-top: 3em;
 `
 const Assignature = styled.b`
     color: rgb(35, 32, 113);
+
+    @media (min-device-width : 320px) and (max-device-width : 420px)  {
+        font-size: 20px;
+    }
 `
 
 export class Footer extends React.Component {
@@ -55,10 +64,10 @@ export class Footer extends React.Component {
                 </li>
             </SocialMedia>
         </section>
-        <Sectionattendance>
+        <SectionAttendance>
             <p>Atendimento: atendimento@spacecat.com </p>
             <p>Parcerias: parcerias@spacecat.com</p>
-        </Sectionattendance>
+        </SectionAttendance>
         <section>
             <Assignature href="https://github.com" target="_blank">
                 <b>Copyright © <a href="https://github.com/nyhvignoli" target="_blank">Aline Vignoli</a>  |  <a href="https://github.com/DiaMont30" target="_blank">Diana Monteiro</a>  |  <a href="https://github.com/nizolnier" target="_blank">Nicole Zolnier</a> 2020</b>

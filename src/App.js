@@ -10,11 +10,19 @@ import Footer from './components/Footer'
 const MainContainer = styled.div`
   display: flex;
   height: 100%;
+
+  @media (min-device-width : 320px) and (max-device-width : 420px)  {
+    flex-direction: column-reverse;
+  }
 `
 
 const ProductsContainer = styled.div`
   width: 80vw;
   flex-grow: 1;
+
+  @media (min-device-width : 320px) and (max-device-width : 420px)  {
+    width: 100vw;
+  }
 `
 
 class App extends React.Component {
