@@ -47,17 +47,9 @@ export class Products extends React.Component {
 
   // função ordernar preço por crescente e decrescente
   orderByPrice = (array) => {
-    if (this.state.option === "crescente") {
-      const crescent = array.sort((a, b) => {
-        return a.price > b.price ? 1 : b.price > a.price ? -1 : 0;
-      });
-      return crescent;
-    } else {
-      const decrescent = array.reverse((a, b) => {
-        return a.price > b.price ? 1 : b.price > a.price ? -1 : 0;
-      });
-      return decrescent;
-    }
+    return array.sort((a, b) =>
+      this.state.option === "crescente" ? a.price - b.price : b.price - a.price
+    );
   };
 
   render() {

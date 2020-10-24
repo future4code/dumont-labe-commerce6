@@ -91,19 +91,27 @@ class App extends React.Component {
 
   // ------- funções shopCart ------------------------------------
   //função adicionar produto 
-  addProduct = (itemId) => {
-    const productToAdd = this.state.productsArray.find(item => {
-      return(itemId === item.id)
-    })
-    if(productToAdd){
-      const newProductToAdd = this.state.productsArray.find(item => itemId === item.id)
-      const newShopList = [...this.state.shopList, {...newProductToAdd, quantity: 1}]
-      this.setState({shopList: newShopList})
+  addProduct = (id, name, price) => {
+    let productToAdd = this.state.shopList.find((item) => {
+      return id === item.id;
+    });
+
+    if (productToAdd) {
+      const alreadyIn = [];
+      for (let item of this.state.shopList) {
+        if (id === item.id) {
+          item.quantity += 1;
+        }
+        alreadyIn.push(item);
+      }
+
+      this.setState({ shopList: alreadyIn });
     } else {
-      const newProductsToAdd = [...this.state.shopList, productToAdd]
-      this.setState({shopList: newProductsToAdd})
+      const newProduct = { id: id, name: name, price: price, quantity: 1 };
+      const newProducts = [...this.state.shopList, newProduct];
+      this.setState({ shopList: newProducts });
     }
-  }
+  };
 
   // função remover item carrinho
   removeItem = (itemId) => {
