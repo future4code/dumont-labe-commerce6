@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Whatsapp from "../img/whatsapp.svg"
+import Facebook from "../img/facebook.svg"
+import Instagram from "../img/instagram.svg"
 
 const FooterContainer = styled.footer`
     background-color: rgb(116, 74, 157, 0.7);
     font-family: 'Staatliches', cursive;
     text-align: center;
     font-size: 16px;
-    color: rgb(35, 32, 112);
+    color: rgb(35, 32, 113);
     padding: 3em;
 `
 const SocialMedia = styled.ul`
@@ -27,7 +30,7 @@ const Sectionattendance = styled.section`
     margin-top: 3em;
 `
 const Assignature = styled.b`
-    color: rgb(35, 32, 112);
+    color: rgb(35, 32, 113);
 `
 
 export class Footer extends React.Component {
@@ -37,17 +40,17 @@ export class Footer extends React.Component {
             <SocialMedia>
                 <li>
                     <a href="https://www.instagram.com/" target="_blank">
-                        <ImgSocialMedia src="https://www.flaticon.com/svg/static/icons/svg/1383/1383330.svg" alt="Logotipo instagram"/>
+                        <ImgSocialMedia src={Instagram} alt="Logotipo instagram"/>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.whatsapp.com/?lang=pt_br" target="_blank">
-                        <ImgSocialMedia src="https://www.flaticon.com/svg/static/icons/svg/1383/1383336.svg" alt="Logotipo Whatsapp"/>
+                        <ImgSocialMedia src={Whatsapp} alt="Logotipo Whatsapp"/>
                     </a>
                 </li>
                 <li>
                     <a href="https://facebook.com/" target="_blank">
-                        <ImgSocialMedia src="https://www.flaticon.com/svg/static/icons/svg/1383/1383326.svg" alt="Logotipo Facebook"/>
+                        <ImgSocialMedia src={Facebook} alt="Logotipo Facebook"/>
                     </a>
                 </li>
             </SocialMedia>
@@ -58,7 +61,7 @@ export class Footer extends React.Component {
         </Sectionattendance>
         <section>
             <Assignature href="https://github.com" target="_blank">
-                <b>Copyright © Aline Vignoli  |  Diana Monteiro  |  Nicole Zolnier 2020</b>
+                <b>Copyright © <a href="https://github.com/nyhvignoli" target="_blank">Aline Vignoli</a>  |  <a href="https://github.com/DiaMont30" target="_blank">Diana Monteiro</a>  |  <a href="https://github.com/nizolnier" target="_blank">Nicole Zolnier</a> 2020</b>
             </Assignature>
         </section>
     </FooterContainer>

@@ -4,6 +4,7 @@ import logo from '../img/logo.svg';
 import shoppingBag from '../img/shopping-bag.png';
 
 
+
 const DivHeader = styled.div`
     display: flex;
     align-items: center;
@@ -27,29 +28,46 @@ const DivStart = styled.div`
 `
 
 const LinkHeader = styled.h3`
-    margin-left: 4em;
+    padding: 0 2em;
     font-weight: 100;
+    &:hover {
+    transition: 0.5s all ease-out;
+    color: rgb(65, 28, 126);
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.img`
     width: 12vw;
-    margin: 10px 0 0 30px;
+    margin: 10px 60px 0 30px;
 `;
 const ShoppingBag = styled.img`
     width: 4vw;
     margin:0 2em 0 30px;
-
+    &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    
+    }
 `;
-const Lupa = styled.img`
+
+const Search = styled.img`
     width: 2vw;
     margin-left: 5px;
+    &:hover {
+    cursor: pointer;
+    }
 `;
 
 const Input = styled.input`
     height: 1.5em;
     width: 20em;
+    border: 2px solid rgb(35, 32, 112);
+    border-radius: 4px;
 `
-
+const Link = styled.a`
+    color: #eb89a6;
+`
 
 export class Header extends React.Component {
 
@@ -68,13 +86,13 @@ export class Header extends React.Component {
                 <DivStart>   
                 <Logo src={logo} />
                 <LinkHeader onClick={this.props.aboutUsVisibility}>Quem somos</LinkHeader>
-                <a href="https://www.google.com.br/maps/place/NASA+Mission+Control+Center/@29.5581038,-95.0915224,17z/data=!3m1!4b1!4m5!3m4!1s0x86409da671292593:0xf684f098a7237a30!8m2!3d29.5580992!4d-95.0893337?hl=pt-BR&authuser=0" target="_blank"><LinkHeader>Onde estamos</LinkHeader></a>                          
+                <Link href="https://www.google.com.br/maps/place/NASA+Mission+Control+Center/@29.5581038,-95.0915224,17z/data=!3m1!4b1!4m5!3m4!1s0x86409da671292593:0xf684f098a7237a30!8m2!3d29.5580992!4d-95.0893337?hl=pt-BR&authuser=0" target="_blank"><LinkHeader>Onde estamos</LinkHeader></Link>                          
                 </DivStart>
                 <DivEnd>
                 {this.state.searchIsVisible && <Input 
                 value={this.props.inputSearchProduct}
                 onChange={this.props.nameFilter}/>}
-                <Lupa onClick={this.handleSearchVisibility} src="https://image.flaticon.com/icons/png/512/57/57477.png"></Lupa>
+                <Search onClick={this.handleSearchVisibility} src="https://image.flaticon.com/icons/png/512/57/57477.png"/>
                 <ShoppingBag  onClick={this.props.clickFunction} src={shoppingBag} />
                 </DivEnd> 
             </DivHeader>
