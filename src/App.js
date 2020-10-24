@@ -23,58 +23,58 @@ class App extends React.Component {
     productsArray: [
       {
           id: 1,
-          image: "https://picsum.photos/300/300",
-          name: "bananinha",
-          price: 10,
+          image: "https://i.imgur.com/vrnfGOA.png",
+          name: "Catuniverse",
+          price: 70,
           quantity: 0
       },
       {
           id: 2,
-          image: "https://picsum.photos/300/300",
-          name: "feijão",
-          price: 60,
+          image: "https://i.imgur.com/uGk5p0c.png",
+          name: "I Love you to the moon",
+          price: 80,
           quantity: 0
       },
       {
           id: 3,
-          image: "https://picsum.photos/300/300",
-          name: "gatinha",
-          price: 30,
+          image: "https://i.imgur.com/5iaBc0X.png",
+          name: "I will destroy your world",
+          price: 90,
           quantity: 0
       },
       {
           id: 4,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
+          image: "https://i.imgur.com/LJhF8ME.png",
+          name: "Houston we have a problem",
+          price: 79,
           quantity: 0
       },
       {
           id: 5,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
+          image: "https://i.imgur.com/YB8qw11.png",
+          name: "Cat side of the moon",
+          price: 80,
           quantity: 0
       },
       {
           id: 6,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
+          image: "https://i.imgur.com/cVyh8LI.png",
+          name: "Houston we have a donuts",
+          price: 69,
           quantity: 0
       },
       {
           id: 7,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
+          image: "https://i.imgur.com/NDbSBLe.png",
+          name: "Catstronauts",
+          price: 59,
           quantity: 0
       },
       {
           id: 8,
-          image: "https://picsum.photos/300/300",
-          name: "camiseta",
-          price: 50,
+          image: "https://i.imgur.com/3ywvppA.png",
+          name: "In a galaxy far, far away",
+          price: 79,
           quantity: 0
       }
       

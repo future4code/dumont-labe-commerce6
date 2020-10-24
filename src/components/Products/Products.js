@@ -7,6 +7,10 @@ const Header = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: 'Staatliches', cursive;
+  font-size: 1.2em;
+  color: rgb(35, 32, 112);
+  margin-top: 1.5em;
 `;
 
 const GridContainer = styled.div`
@@ -14,7 +18,22 @@ const GridContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-right: 10px;
+  margin: 2em 4em 4em 4em;
+  /* border: 2px solid #eb89a6; */
+  padding: 4em 2em 0 2em;
+  background-color: rgb(230, 197, 191, 0.3);
+
 `;
+
+const Select = styled.select`
+  height: 1.5em;
+  width: 10em;
+  border: 2px solid rgb(35, 32, 112);
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: rgb(35, 32, 112);
+  font-family: 'Staatliches', cursive;
+`
 
 export class Products extends React.Component {
   state = {
@@ -79,10 +98,10 @@ export class Products extends React.Component {
           maxFilter={this.state.inputMaxValue}
           />
           <p>Quantidade de Produtos: {list.length}</p>
-          <select onChange={this.onChangeSelect}>
+          <Select onChange={this.onChangeSelect}>
             <option value={"crescente"}>Crescente</option>
             <option value={"decrescente"}>Decrescente</option>
-          </select>
+          </Select>
         </Header>
         <GridContainer>{list}</GridContainer>
       </div>

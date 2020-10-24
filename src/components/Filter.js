@@ -8,7 +8,9 @@ const FilterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: rgb(35, 32, 112);
+    font-family: 'Staatliches', cursive;
+    font-size: 1em;
+    color: rgb(35, 32, 113);
 `
 const Title = styled.h3`
     margin-right: 10px;
@@ -16,6 +18,12 @@ const Title = styled.h3`
 
 const Input = styled.input`
     margin-right: 10px;
+    height: 1.3em;
+    width: 30em;
+    border: 2px solid rgb(35, 32, 113);
+    border-radius: 4px;
+    font-size: 17px;
+    font-family: 'Staatliches', cursive;
 `
 
 class Filter extends React.Component {
