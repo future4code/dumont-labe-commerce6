@@ -11,7 +11,8 @@ const FooterContainer = styled.footer`
     font-size: 16px;
     color: rgb(35, 32, 113);
     padding: 3em;
-`
+`;
+
 const SocialMedia = styled.ul`
     display:flex;
     list-style-type: none;
@@ -21,26 +22,26 @@ const SocialMedia = styled.ul`
     border-left: none;
     border-right: none;
     border-top: none;
-`
+`;
+
 const ImgSocialMedia = styled.img`
     width: 13%;
-    
     @media (min-device-width : 320px) and (max-device-width : 420px)  {
         width: 12vw;  
         margin: 10px 2em 15px 1em;
     }
+`;
 
-`
 const SectionAttendance = styled.section`
     margin-top: 3em;
-`
+`;
+
 const Assignature = styled.b`
     color: rgb(35, 32, 113);
-
     @media (min-device-width : 320px) and (max-device-width : 420px)  {
         font-size: 20px;
     }
-`
+`;
 
 export class Footer extends React.Component {
     render() {
