@@ -43,7 +43,7 @@ class Filter extends React.Component {
       <FilterContainer>
         <Title>Filtros:</Title>
         <Input
-          
+
           type="number"
           placeholder={"Valor mínimo"}
           onChange={this.props.onChangeMin}
@@ -51,7 +51,7 @@ class Filter extends React.Component {
         />
 
         <Input
-          
+
           type="number"
           placeholder={"Valor máximo"}
           onChange={this.props.onChangeMax}

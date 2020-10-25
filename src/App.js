@@ -186,20 +186,20 @@ class App extends React.Component {
           return false
         }
       });
-     
+
     } else if ((this.state.inputMaxValue !== "") || (this.state.inputMinValue !== "")) {
       filteredList = this.state.productsArray.filter((item) => {
-        if ((item.price >= this.state.inputMinValue) &&  (item.price <= this.state.inputMaxValue)) {
+        if ((item.price >= this.state.inputMinValue) && (item.price <= this.state.inputMaxValue)) {
           return true
         } else {
           return false
         }
       });
- 
-      
+
+
     } else {
       filteredList = this.state.productsArray;
-      
+
     }
     return filteredList
   };
@@ -224,7 +224,7 @@ class App extends React.Component {
               onChangeMax={this.onChangeMax}
               inputMinValue={this.state.inputMinValue}
               inputMaxValue={this.state.inputMaxValue}
-              inputName = {this.state.inputSearch}
+              inputName={this.state.inputSearch}
             />
           </ProductsContainer>
           {this.state.shopCartIsVisible && (
