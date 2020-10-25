@@ -69,10 +69,6 @@ export class Products extends React.Component {
     );
   };
 
-  filterProducts = () => {
-
-  }
-
   render() {
     const orderedList = this.orderByPrice(this.props.products);
 
