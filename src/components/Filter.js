@@ -43,15 +43,19 @@ class Filter extends React.Component {
       <FilterContainer>
         <Title>Filtros:</Title>
         <Input
-          value={this.props.inputMinValue}
+          
           type="number"
           placeholder={"Valor mínimo"}
+          onChange={this.props.onChangeMin}
+          value={this.props.inputMinValue}
         />
 
         <Input
-          value={this.props.inputMaxValue}
+          
           type="number"
           placeholder={"Valor máximo"}
+          onChange={this.props.onChangeMax}
+          value={this.props.inputMaxValue}
         />
       </FilterContainer>
     );

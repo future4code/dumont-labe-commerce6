@@ -124,8 +124,7 @@ export class Header extends React.Component {
         <DivEnd>
           {this.state.searchIsVisible && (
             <Input
-              value={this.props.inputSearchProduct}
-              onChange={this.props.nameFilter}
+              onChange={this.props.onChangeName}
             />
           )}
           <Search
