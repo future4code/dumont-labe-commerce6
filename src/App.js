@@ -119,10 +119,19 @@ class App extends React.Component {
 
   // função remover item carrinho
   removeItem = (itemId) => {
-    const newList = this.state.shopList.filter((product) => {
-      return product.id !== itemId;
-    });
-    this.setState({ shopList: newList });
+    const alreadyThere = this.state.shopList.map((item) =>{
+      if(item.id === itemId){
+        return{
+          ...item,
+          quantity: item.quantity - 1
+        }
+      }
+      return item
+    })
+
+    const deletedCompletely = alreadyThere.filter((item) => item.quantity > 0)
+
+    this.setState({shopList: deletedCompletely})
   };
   // -----------------------------------------------------
 
