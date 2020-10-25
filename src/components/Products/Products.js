@@ -1,18 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import Filter from '../Filter';
+import Filter from "../Filter";
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Staatliches', cursive;
+  font-family: "Staatliches", cursive;
   font-size: 1.2em;
   color: rgb(35, 32, 112);
   margin-top: 2em;
-
-  @media (min-device-width : 320px) and (max-device-width : 420px)  {
+  @media (min-device-width: 320px) and (max-device-width: 420px) {
     flex-direction: column;
     background-color: rgb(230, 197, 191, 0.3);
     margin-top: 0;
@@ -26,15 +25,13 @@ const GridContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-right: 10px;
   margin: 2.5em 2em 4em 2em;
-  /* border: 2px solid #eb89a6; */
   padding: 4em 2em 0 2em;
   background-color: rgb(230, 197, 191, 0.3);
-
-  @media (min-device-width : 320px) and (max-device-width : 420px)  {
+  @media (min-device-width: 320px) and (max-device-width: 420px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 0;
-  } 
+  }
 `;
 
 const Select = styled.select`
@@ -44,21 +41,20 @@ const Select = styled.select`
   border-radius: 4px;
   font-size: 0.95em;
   color: rgb(35, 32, 112);
-  font-family: 'Staatliches', cursive;
+  font-family: "Staatliches", cursive;
   margin-right: 35px;
-
-  @media (min-device-width : 320px) and (max-device-width : 420px)  {
+  @media (min-device-width: 320px) and (max-device-width: 420px) {
     margin-top: 2em;
     margin-right: 0;
     width: 15em;
     height: 2em;
     font-size: 0.8em;
   }
-`
+`;
 
 export class Products extends React.Component {
   state = {
-    option: ""
+    option: "",
   };
 
   //  controle do input
@@ -75,7 +71,7 @@ export class Products extends React.Component {
 
   render() {
     const orderedList = this.orderByPrice(this.props.products);
-    const orderedListFiltered = this.orderByPrice(this.props.filteredList)
+    const orderedListFiltered = this.orderByPrice(this.props.filteredList);
     let list =
       this.props.filteredList.length !== 0
         ? orderedListFiltered.map((product) => {
@@ -107,8 +103,8 @@ export class Products extends React.Component {
       <div>
         <Header>
           <Filter
-          minFilter={this.state.inputMinValue}
-          maxFilter={this.state.inputMaxValue}
+            minFilter={this.state.inputMinValue}
+            maxFilter={this.state.inputMaxValue}
           />
           <p>Quantidade de Produtos: {list.length}</p>
           <Select onChange={this.onChangeSelect}>
