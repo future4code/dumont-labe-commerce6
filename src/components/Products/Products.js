@@ -69,25 +69,21 @@ export class Products extends React.Component {
     );
   };
 
-  filterProducts = () => {
-
-  }
-  
   render() {
     const orderedList = this.orderByPrice(this.props.products);
-    
+
     let list = orderedList.map((product) => {
-            return (
-              <Card
-                image={product.image}
-                name={product.name}
-                id={product.id}
-                price={product.price}
-                quantity={product.quantity}
-                toCart={this.props.toCart}
-              />
-            );
-          });
+      return (
+        <Card
+          image={product.image}
+          name={product.name}
+          id={product.id}
+          price={product.price}
+          quantity={product.quantity}
+          toCart={this.props.toCart}
+        />
+      );
+    });
 
     return (
       <div>
