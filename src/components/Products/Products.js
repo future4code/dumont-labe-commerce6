@@ -69,24 +69,14 @@ export class Products extends React.Component {
     );
   };
 
+  filterProducts = () => {
+
+  }
+  
   render() {
     const orderedList = this.orderByPrice(this.props.products);
-    const orderedListFiltered = this.orderByPrice(this.props.filteredList);
-    let list =
-      this.props.filteredList.length !== 0
-        ? orderedListFiltered.map((product) => {
-            return (
-              <Card
-                image={product.image}
-                name={product.name}
-                id={product.id}
-                price={product.price}
-                quantity={product.quantity}
-                toCart={this.props.toCart}
-              />
-            );
-          })
-        : orderedList.map((product) => {
+    
+    let list = orderedList.map((product) => {
             return (
               <Card
                 image={product.image}
@@ -103,8 +93,10 @@ export class Products extends React.Component {
       <div>
         <Header>
           <Filter
-            minFilter={this.state.inputMinValue}
-            maxFilter={this.state.inputMaxValue}
+            onChangeMin={this.props.onChangeMin}
+            onChangeMax={this.props.onChangeMax}
+            inputMinValue={this.props.inputMinValue}
+            inputMaxValue={this.props.inputMaxValue}
           />
           <p>Quantidade de Produtos: {list.length}</p>
           <Select onChange={this.onChangeSelect}>

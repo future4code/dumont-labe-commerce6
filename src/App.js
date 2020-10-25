@@ -83,14 +83,12 @@ class App extends React.Component {
         quantity: 0,
       },
     ],
-    inputMinValue: 0,
-    inputMaxValue: Infinity,
-    inputSearchProduct: "",
+    inputMinValue: "",
+    inputMaxValue: "",
+    inputSearch: "",
     shopCartIsVisible: false,
     aboutUsIsVisible: false,
-    filteredList: [],
-    shopList: [],
-    priceRangeList: [],
+    shopList: []
   };
 
   // ------- funções shopCart ------------------------------------
@@ -119,9 +117,9 @@ class App extends React.Component {
 
   // função remover item carrinho
   removeItem = (itemId) => {
-    const alreadyThere = this.state.shopList.map((item) =>{
-      if(item.id === itemId){
-        return{
+    const alreadyThere = this.state.shopList.map((item) => {
+      if (item.id === itemId) {
+        return {
           ...item,
           quantity: item.quantity - 1
         }
@@ -131,7 +129,7 @@ class App extends React.Component {
 
     const deletedCompletely = alreadyThere.filter((item) => item.quantity > 0)
 
-    this.setState({shopList: deletedCompletely})
+    this.setState({ shopList: deletedCompletely })
   };
   // -----------------------------------------------------
 
@@ -162,20 +160,48 @@ class App extends React.Component {
   // -----------------------------------------------------
 
   // ------- funções de filtro ---------------------------
-  // função filtrar pelo nome do item
+  // funções de input controlados
+  onChangeMin = (event) => {
+    this.setState({ inputMinValue: event.target.value });
+  };
+  onChangeMax = (event) => {
+    this.setState({ inputMaxValue: event.target.value });
+    console.log("entrei")
+  };
+
   onChangeInputSearch = (event) => {
     this.setState({ inputSearch: event.target.value });
+  };
 
-    const filteredList = this.state.productsArray.filter((product) => {
-      const name = product.name.toLowerCase();
-      const inputValue = event.target.value.toLowerCase();
-      if (name.includes(inputValue)) {
-        return product;
-      } else {
-        return this.setState({ filteredList: this.state.productsArray });
-      }
-    });
-    this.setState({ filteredList: filteredList });
+  // função de filtro por minimo e maximo e por nome
+  filterProducts = () => {
+    let filteredList
+    if (this.state.inputSearch !== "") {
+      filteredList = this.state.productsArray.filter((item) => {
+        const name = item.name.toLowerCase();
+        const input = this.state.inputSearch.toLowerCase();
+        if (name.includes(input)) {
+          return true
+        } else {
+          return false
+        }
+      });
+     
+    } else if ((this.state.inputMaxValue !== "") || (this.state.inputMinValue !== "")) {
+      filteredList = this.state.productsArray.filter((item) => {
+        if ((item.price >= this.state.inputMinValue) &&  (item.price <= this.state.inputMaxValue)) {
+          return true
+        } else {
+          return false
+        }
+      });
+ 
+      
+    } else {
+      filteredList = this.state.productsArray;
+      
+    }
+    return filteredList
   };
 
   // -----------------------------------------------------
@@ -186,17 +212,19 @@ class App extends React.Component {
         <Header
           clickFunction={this.handleShoppingCartVisibility}
           aboutUsVisibility={this.handleAboutUsVisibility}
-          nameFilter={this.onChangeInputSearch}
+          onChangeName={this.onChangeInputSearch}
         />
         {this.state.aboutUsIsVisible && <AboutUs />}
         <MainContainer>
           <ProductsContainer>
             <Products
-              products={this.state.productsArray}
+              products={this.filterProducts()}
               toCart={this.addProduct}
-              filteredList={this.state.filteredList}
-              rangeFilter={this.filterPriceRange}
-              rangeList={this.state.priceRangeList}
+              onChangeMin={this.onChangeMin}
+              onChangeMax={this.onChangeMax}
+              inputMinValue={this.state.inputMinValue}
+              inputMaxValue={this.state.inputMaxValue}
+              inputName = {this.state.inputSearch}
             />
           </ProductsContainer>
           {this.state.shopCartIsVisible && (
